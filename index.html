@@ -37,7 +37,7 @@
    <nav class="navbar">
     <a class="brand" href="index.html">
      <img alt="Dice and Dealers Logo" class="logo" src="diceanddealerslogo.png" width="100"/>
-     Dice &amp; Dealers
+     Dice & Dealers
     </a>
     <div class="nav-links">
      <a href="index.html">
@@ -53,7 +53,7 @@
       Warhammer 40k
      </a>
      <a href="dnd/index.html">
-      D&amp;D
+      D&D
      </a>
     </div>
    </nav>
@@ -82,11 +82,11 @@
    <p>
     We meet every
     <strong>
-     Tuesday from the 7th October 2025 from 6:30 PM to 11:00 PM
+     Tuesday from 5:30 PM to 10:00 PM
     </strong>
     at
     <em>
-     Basford Miners Welfare Centre, 55 Goldcrest Road, NG6 8PT
+     The Embankment, 282-284 Arkwright St, Nottingham NG2 2GR
     </em>
     , and every
     <strong>
@@ -147,7 +147,7 @@
       The world's greatest roleplaying game, a cooperative storytelling adventure.
      </p>
      <a class="button" href="dnd/index.html">
-      D&amp;D Guides
+      D&D Guides
      </a>
     </div>
    </div>
@@ -166,12 +166,12 @@
       const wednesdayDate = 3; // Wednesday
 
       nextTuesday.setDate(now.getDate() + (tuesdayDate > today ? tuesdayDate - today : 7 + tuesdayDate - today));
-      nextTuesday.setHours(18, 30, 0, 0);
+      nextTuesday.setHours(17, 30, 0, 0); // New start time 5:30 PM
 
       nextWednesday.setDate(now.getDate() + (wednesdayDate > today ? wednesdayDate - today : 7 + wednesdayDate - today));
       nextWednesday.setHours(18, 30, 0, 0);
 
-      if (today === tuesdayDate && (hours > 18 || (hours === 18 && minutes >= 30))) {
+      if (today === tuesdayDate && (hours > 17 || (hours === 17 && minutes >= 30))) {
         nextTuesday.setDate(nextTuesday.getDate() + 7);
       }
 
@@ -179,19 +179,11 @@
         nextWednesday.setDate(nextWednesday.getDate() + 7);
       }
 
-      const tuesdayStart = new Date('2025-10-07T18:30:00');
-      const basfordMinersLink = 'https://maps.app.goo.gl/6BnomDAhjmSjm7hY8';
+      const embankmentLink = 'https://www.google.com/maps/embed?pb=!3m2!1sen!2suk!4v1769791186952!5m2!1sen!2suk!6m8!1m7!1sEJTcf5fHrjwYpxNGynLAaA!2m2!1d52.93943022144187!2d-1.138436563690614!3f271.4820139581409!4f0.9339540842018152!5f0.7820865974627469';
       const theOxfordLink = 'https://maps.app.goo.gl/EiQDZoU5Gaiz2woV6';
 
-      if (now < tuesdayStart) {
-        return {
-          date: nextWednesday,
-          location: theOxfordLink
-        };
-      }
-
       const nextClubNight = nextTuesday < nextWednesday ? nextTuesday : nextWednesday;
-      const nextLocation = nextTuesday < nextWednesday ? basfordMinersLink : theOxfordLink;
+      const nextLocation = nextTuesday < nextWednesday ? embankmentLink : theOxfordLink;
 
       return { date: nextClubNight, location: nextLocation };
     }
@@ -224,10 +216,7 @@
       }
     }
 
-    // Initial call to set the countdown text immediately
     updateCountdown();
-
-    // Update the countdown every minute
     setInterval(updateCountdown, 60000);
   </script>
   <footer>
