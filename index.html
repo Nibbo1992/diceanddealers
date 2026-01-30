@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>
+   Dice & Dealers Club
+  </title>
+  <link href="/style.css" rel="stylesheet">
+  <style>
+   .logo {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .countdown-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+
+    .countdown-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+ </head>
+ <body class="main">
+  <header class="site-header">
+   <nav class="navbar">
+    <a class="brand" href="index.html">
+     <img alt="Dice and Dealers Logo" class="logo" src="diceanddealerslogo.png" width="100"/>
+     Dice &amp; Dealers
+    </a>
+    <div class="nav-links">
+     <a href="index.html">
+      Home
+     </a>
+     <a href="about.html">
+      About Us
+     </a>
+     <a href="aos/index.html">
+      Age of Sigmar
+     </a>
+     <a href="40k/index.html">
+      Warhammer 40k
+     </a>
+     <a href="dnd/index.html">
+      D&amp;D
+     </a>
+    </div>
+   </nav>
+  </header>
+  <main>
+  </main>
+  <header>
+   <h1>
+    Dice & Dealers Club
+   </h1>
+   <p>
+    Games for all ages, from tabletop wargames to D&D adventures!
+   </p>
+  </header>
+  <section class="about-us">
+   <h2>
+    About Us
+   </h2>
+   <p>
+    Welcome to
+    <strong>
+     Dice and Dealers
+    </strong>
+    , a haven for gamers and a community built on the roll of a die and the flip of a card. Formed in 2025, our club is a safe and comfortable space where everyone—from the youngest aspiring hero to the most seasoned veteran—can find a place at our table.
+   </p>
+   <p>
+    We meet every
+    <strong>
+     Tuesday from the 7th October 2025 from 6:30 PM to 11:00 PM
+    </strong>
+    at
+    <em>
+     Basford Miners Welfare Centre, 55 Goldcrest Road, NG6 8PT
+    </em>
+    , and every
+    <strong>
+     Wednesday from 6:30 PM to 10:00 PM
+    </strong>
+    at
+    <em>
+     The Oxford Bulwell, Highbury Rd, Nottingham NG6 9BU
+    </em>
+    . Whether you're looking to lead a regiment into battle, embark on a quest to save the realm, or simply enjoy a quiet evening with friends, our doors are always open. We believe in the magic of storytelling, the thrill of competition, and the unbreakable bonds forged over a shared love for the hobby.
+   </p>
+   <a class="button" href="about.html">
+    Learn More About Us
+   </a>
+   <a class="button" href="https://chat.whatsapp.com/BpAByTruWNkEZGd31e0osz" target="_blank">
+    Join Our WhatsApp Group
+   </a>
+   <a id="countdown-button" class="countdown-button" href="#" target="_blank"></a>
+  </section>
+  <section class="content">
+   <h2>
+    What We Play
+   </h2>
+   <div class="game-container">
+    <div class="game-card">
+     <h3>
+      Warhammer: Age of Sigmar
+     </h3>
+     <p>
+      An epic fantasy wargame where powerful armies clash in the Mortal Realms.
+     </p>
+     <a class="button" href="aos/index.html">
+      Age of Sigmar Guides
+     </a>
+     <a class="button" href="aos/aos_spearhead_guide.html">
+      Age of Sigmar Spearhead Guide
+     </a>
+    </div>
+    <div class="game-card">
+     <h3>
+      Warhammer 40,000
+     </h3>
+     <p>
+      The ultimate grimdark science-fiction wargame of the far future.
+     </p>
+     <a class="button" href="40k/index.html">
+      Warhammer 40k Guides
+     </a>
+     <a class="button" href="40k/combat_patrol_guide.html">
+      40k Combat Patrol Guide
+     </a>
+    </div>
+    <div class="game-card">
+     <h3>
+      Dungeons & Dragons
+     </h3>
+     <p>
+      The world's greatest roleplaying game, a cooperative storytelling adventure.
+     </p>
+     <a class="button" href="dnd/index.html">
+      D&amp;D Guides
+     </a>
+    </div>
+   </div>
+  </section>
+  <script>
+    function getNextClubNight() {
+      const now = new Date();
+      const today = now.getDay();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+
+      const nextTuesday = new Date(now);
+      const nextWednesday = new Date(now);
+
+      const tuesdayDate = 2; // Tuesday
+      const wednesdayDate = 3; // Wednesday
+
+      nextTuesday.setDate(now.getDate() + (tuesdayDate > today ? tuesdayDate - today : 7 + tuesdayDate - today));
+      nextTuesday.setHours(18, 30, 0, 0);
+
+      nextWednesday.setDate(now.getDate() + (wednesdayDate > today ? wednesdayDate - today : 7 + wednesdayDate - today));
+      nextWednesday.setHours(18, 30, 0, 0);
+
+      if (today === tuesdayDate && (hours > 18 || (hours === 18 && minutes >= 30))) {
+        nextTuesday.setDate(nextTuesday.getDate() + 7);
+      }
+
+      if (today === wednesdayDate && (hours > 18 || (hours === 18 && minutes >= 30))) {
+        nextWednesday.setDate(nextWednesday.getDate() + 7);
+      }
+
+      const tuesdayStart = new Date('2025-10-07T18:30:00');
+      const basfordMinersLink = 'https://maps.app.goo.gl/6BnomDAhjmSjm7hY8';
+      const theOxfordLink = 'https://maps.app.goo.gl/EiQDZoU5Gaiz2woV6';
+
+      if (now < tuesdayStart) {
+        return {
+          date: nextWednesday,
+          location: theOxfordLink
+        };
+      }
+
+      const nextClubNight = nextTuesday < nextWednesday ? nextTuesday : nextWednesday;
+      const nextLocation = nextTuesday < nextWednesday ? basfordMinersLink : theOxfordLink;
+
+      return { date: nextClubNight, location: nextLocation };
+    }
+
+    function updateCountdown() {
+      const countdownButton = document.getElementById('countdown-button');
+      const { date: nextClubNight, location } = getNextClubNight();
+      const now = new Date();
+      const timeDifference = nextClubNight.getTime() - now.getTime();
+      const oneDay = 1000 * 60 * 60 * 24;
+
+      countdownButton.href = location;
+
+      if (timeDifference < 0) {
+        countdownButton.textContent = "We're meeting now! Come join us!";
+      } else {
+        const days = Math.floor(timeDifference / oneDay);
+        const nextClubNightMidnight = new Date(nextClubNight.getFullYear(), nextClubNight.getMonth(), nextClubNight.getDate()).getTime();
+        const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+        const daysUntil = Math.round((nextClubNightMidnight - nowMidnight) / oneDay);
+
+        if (daysUntil === 0) {
+          countdownButton.textContent = "The Meet-Up is Today!";
+        } else if (daysUntil === 1) {
+          countdownButton.textContent = "The Meet-Up is Tomorrow!";
+        } else {
+          const dayString = daysUntil === 1 ? 'Day' : 'Days';
+          countdownButton.textContent = `Next Meet-Up in: ${daysUntil} ${dayString}`;
+        }
+      }
+    }
+
+    // Initial call to set the countdown text immediately
+    updateCountdown();
+
+    // Update the countdown every minute
+    setInterval(updateCountdown, 60000);
+  </script>
+  <footer>
+   <p>
+    © 2025 Dice & Dealers Club
+   </p>
+  </footer>
+ </body>
+</html>

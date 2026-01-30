@@ -1,0 +1,3 @@
+*Fix formatting with the club logo on the main page, use new update transparent png.
+*add a "meet the team" section to the club's "about us" page. info for Kalon, Jamie, Aiden, (Megan/Carrie-Ann if they want to be included/involved)
+*fix CSS on the spearhead page to match the rest of the website.

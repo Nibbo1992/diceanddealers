@@ -1,0 +1,214 @@
+/*
+ * General Styles
+ * A modern cozy fantasy theme with colors matched to the club logo.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #212529; /* Dark charcoal */
+  --secondary-color: #343a40; /* Darker gray-blue */
+  --accent-color: #e65c00; /* Vibrant orange from the d20 */
+  --highlight-color: #f7b32b; /* Bright yellow/gold from the logo */
+  --text-color: #f8f9fa; /* Off-white for readability */
+  --background-color: #495057; /* Muted background gray */
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/dust-and-scratches.png');
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  color: var(--highlight-color);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff8c42; /* A slightly brighter orange */
+}
+
+/*
+ * Header & Navigation
+ */
+header {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.site-header {
+  background-color: var(--primary-color);
+  padding: 1rem 0;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  border-radius: 50%;
+  border: 2px solid var(--highlight-color);
+}
+
+.nav-links a {
+  margin-left: 2rem;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+/*
+ * Sections
+ */
+section {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+  border: 1px solid var(--accent-color);
+}
+
+/*
+ * Buttons
+ */
+.button, .painting-guide, main a {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--accent-color);
+  padding: 5px 10px;
+  font-size: 1.1em; /* Slightly larger text */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Very subtle border */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover, .painting-guide:hover, main a:hover {
+  color: #ff8c42;
+  border-color: #ff8c42;
+}
+
+.painting-guide {
+  font-size: 1rem;
+}
+
+/*
+ * Game Cards
+ */
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.game-card {
+  background-color: var(--primary-color);
+  padding: 1.8rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  border: 1px solid var(--secondary-color);
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+}
+
+.game-card h3 {
+  margin-top: 0;
+}
+
+/*
+ * Journey Section (Miniaturist's Handbook)
+ */
+#journey-section {
+  background-color: var(--secondary-color);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+#journey-section h2, #journey-section h3 {
+  color: var(--highlight-color);
+}
+
+#journey-section p {
+  color: var(--text-color);
+}
+
+/*
+ * Footer
+ */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+}
+
+/*
+ * Responsive Design
+ */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+  }
+
+  .nav-links a {
+    margin: 0 10px;
+  }
+
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.4rem; }
+
+  section {
+    padding: 1.5rem;
+  }
+}
