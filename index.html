@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>
-   Dice & Dealers Club
-  </title>
+  <title>Dice & Dealers Club - Tabletop Gaming Community in Nottingham</title>
+  <meta name="description" content="Join Dice & Dealers Club for Warhammer 40k, Age of Sigmar, and D&D gaming nights in Nottingham. Meet Tuesdays at The Embankment and Wednesdays at The Oxford Bulwell.">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://diceanddealers.com/">
+  <meta property="og:title" content="Dice & Dealers Club - Tabletop Gaming Community">
+  <meta property="og:description" content="Join our tabletop gaming community in Nottingham for Warhammer 40k, Age of Sigmar, and D&D.">
+  <meta property="og:image" content="/diceanddealerslogo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://diceanddealers.com/">
+  <meta property="twitter:title" content="Dice & Dealers Club - Tabletop Gaming Community">
+  <meta property="twitter:description" content="Join our tabletop gaming community in Nottingham for Warhammer 40k, Age of Sigmar, and D&D.">
+  <meta property="twitter:image" content="/diceanddealerslogo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/diceanddealerslogo.png">
+  
   <link href="/style.css" rel="stylesheet">
   <style>
    .logo {
@@ -16,142 +33,87 @@
 
     .countdown-button {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 12px 24px;
       margin-top: 20px;
-      background-color: #007bff;
+      background-color: #e65c00;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 8px;
       font-weight: bold;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
       text-align: center;
+      border: 2px solid #e65c00;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     .countdown-button:hover {
-      background-color: #0056b3;
+      background-color: #ff8c42;
+      border-color: #ff8c42;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
   </style>
- </head>
- <body class="main">
+</head>
+<body class="main">
   <header class="site-header">
-   <nav class="navbar">
-    <a class="brand" href="index.html">
-     <img alt="Dice and Dealers Logo" class="logo" src="diceanddealerslogo.png" width="100"/>
-     Dice & Dealers
-    </a>
-    <div class="nav-links">
-     <a href="index.html">
-      Home
-     </a>
-     <a href="about.html">
-      About Us
-     </a>
-     <a href="aos/index.html">
-      Age of Sigmar
-     </a>
-     <a href="40k/index.html">
-      Warhammer 40k
-     </a>
-     <a href="dnd/index.html">
-      D&D
-     </a>
-    </div>
-   </nav>
+    <nav class="navbar">
+      <a class="brand" href="/index.html">
+        <img alt="Dice and Dealers Logo" class="logo" src="/diceanddealerslogo.png" width="100"/>
+        Dice & Dealers
+      </a>
+      <div class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About Us</a>
+        <a href="/aos/index.html">Age of Sigmar</a>
+        <a href="/40k/index.html">Warhammer 40k</a>
+        <a href="/dnd/index.html">D&D</a>
+      </div>
+    </nav>
   </header>
+  
   <main>
+    <header>
+      <h1>Dice & Dealers Club</h1>
+      <p>Games for all ages, from tabletop wargames to D&D adventures!</p>
+    </header>
+    
+    <section class="about-us">
+      <h2>About Us</h2>
+      <p>
+        Welcome to <strong>Dice and Dealers</strong>, a haven for gamers and a community built on the roll of a die and the flip of a card. Formed in 2025, our club is a safe and comfortable space where everyone—from the youngest aspiring hero to the most seasoned veteran—can find a place at our table.
+      </p>
+      <p>
+        We meet every <strong>Tuesday from 5:30 PM to 10:00 PM</strong> at <em>The Embankment, 282-284 Arkwright St, Nottingham NG2 2GR</em>, and every <strong>Wednesday from 6:30 PM to 10:00 PM</strong> at <em>The Oxford Bulwell, Highbury Rd, Nottingham NG6 9BU</em>. Whether you're looking to lead a regiment into battle, embark on a quest to save the realm, or simply enjoy a quiet evening with friends, our doors are always open. We believe in the magic of storytelling, the thrill of competition, and the unbreakable bonds forged over a shared love for the hobby.
+      </p>
+      <a class="button" href="/about.html">Learn More About Us</a>
+      <a class="button" href="https://chat.whatsapp.com/BpAByTruWNkEZGd31e0osz" target="_blank" rel="noopener noreferrer">Join Our WhatsApp Group</a>
+      <a id="countdown-button" class="countdown-button" href="#" target="_blank" rel="noopener noreferrer"></a>
+    </section>
+    
+    <section class="content">
+      <h2>What We Play</h2>
+      <div class="game-container">
+        <div class="game-card">
+          <h3>Warhammer: Age of Sigmar</h3>
+          <p>An epic fantasy wargame where powerful armies clash in the Mortal Realms.</p>
+          <a class="button" href="/aos/index.html">Age of Sigmar Guides</a>
+          <a class="button" href="/aos/aos_spearhead_guide.html">Age of Sigmar Spearhead Guide</a>
+        </div>
+        <div class="game-card">
+          <h3>Warhammer 40,000</h3>
+          <p>The ultimate grimdark science-fiction wargame of the far future.</p>
+          <a class="button" href="/40k/index.html">Warhammer 40k Guides</a>
+          <a class="button" href="/40k/combat_patrol_guide.html">40k Combat Patrol Guide</a>
+        </div>
+        <div class="game-card">
+          <h3>Dungeons & Dragons</h3>
+          <p>The world's greatest roleplaying game, a cooperative storytelling adventure.</p>
+          <a class="button" href="/dnd/index.html">D&D Guides</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <header>
-   <h1>
-    Dice & Dealers Club
-   </h1>
-   <p>
-    Games for all ages, from tabletop wargames to D&D adventures!
-   </p>
-  </header>
-  <section class="about-us">
-   <h2>
-    About Us
-   </h2>
-   <p>
-    Welcome to
-    <strong>
-     Dice and Dealers
-    </strong>
-    , a haven for gamers and a community built on the roll of a die and the flip of a card. Formed in 2025, our club is a safe and comfortable space where everyone—from the youngest aspiring hero to the most seasoned veteran—can find a place at our table.
-   </p>
-   <p>
-    We meet every
-    <strong>
-     Tuesday from 5:30 PM to 10:00 PM
-    </strong>
-    at
-    <em>
-     The Embankment, 282-284 Arkwright St, Nottingham NG2 2GR
-    </em>
-    , and every
-    <strong>
-     Wednesday from 6:30 PM to 10:00 PM
-    </strong>
-    at
-    <em>
-     The Oxford Bulwell, Highbury Rd, Nottingham NG6 9BU
-    </em>
-    . Whether you're looking to lead a regiment into battle, embark on a quest to save the realm, or simply enjoy a quiet evening with friends, our doors are always open. We believe in the magic of storytelling, the thrill of competition, and the unbreakable bonds forged over a shared love for the hobby.
-   </p>
-   <a class="button" href="about.html">
-    Learn More About Us
-   </a>
-   <a class="button" href="https://chat.whatsapp.com/BpAByTruWNkEZGd31e0osz" target="_blank">
-    Join Our WhatsApp Group
-   </a>
-   <a id="countdown-button" class="countdown-button" href="#" target="_blank"></a>
-  </section>
-  <section class="content">
-   <h2>
-    What We Play
-   </h2>
-   <div class="game-container">
-    <div class="game-card">
-     <h3>
-      Warhammer: Age of Sigmar
-     </h3>
-     <p>
-      An epic fantasy wargame where powerful armies clash in the Mortal Realms.
-     </p>
-     <a class="button" href="aos/index.html">
-      Age of Sigmar Guides
-     </a>
-     <a class="button" href="aos/aos_spearhead_guide.html">
-      Age of Sigmar Spearhead Guide
-     </a>
-    </div>
-    <div class="game-card">
-     <h3>
-      Warhammer 40,000
-     </h3>
-     <p>
-      The ultimate grimdark science-fiction wargame of the far future.
-     </p>
-     <a class="button" href="40k/index.html">
-      Warhammer 40k Guides
-     </a>
-     <a class="button" href="40k/combat_patrol_guide.html">
-      40k Combat Patrol Guide
-     </a>
-    </div>
-    <div class="game-card">
-     <h3>
-      Dungeons & Dragons
-     </h3>
-     <p>
-      The world's greatest roleplaying game, a cooperative storytelling adventure.
-     </p>
-     <a class="button" href="dnd/index.html">
-      D&D Guides
-     </a>
-    </div>
-   </div>
-  </section>
+  
   <script>
     function getNextClubNight() {
       const now = new Date();
@@ -166,10 +128,10 @@
       const wednesdayDate = 3; // Wednesday
 
       nextTuesday.setDate(now.getDate() + (tuesdayDate > today ? tuesdayDate - today : 7 + tuesdayDate - today));
-      nextTuesday.setHours(17, 30, 0, 0); // New start time 5:30 PM
+      nextTuesday.setHours(17, 30, 0, 0); // 5:30 PM
 
       nextWednesday.setDate(now.getDate() + (wednesdayDate > today ? wednesdayDate - today : 7 + wednesdayDate - today));
-      nextWednesday.setHours(18, 30, 0, 0);
+      nextWednesday.setHours(18, 30, 0, 0); // 6:30 PM
 
       if (today === tuesdayDate && (hours > 17 || (hours === 17 && minutes >= 30))) {
         nextTuesday.setDate(nextTuesday.getDate() + 7);
@@ -179,7 +141,7 @@
         nextWednesday.setDate(nextWednesday.getDate() + 7);
       }
 
-      const embankmentLink = 'https://share.google/pkBy9orFqzvRE9afu';
+      const embankmentLink = 'https://www.google.com/maps/place/The+Embankment/@52.9394302,-1.1384366,17z';
       const theOxfordLink = 'https://maps.app.goo.gl/EiQDZoU5Gaiz2woV6';
 
       const nextClubNight = nextTuesday < nextWednesday ? nextTuesday : nextWednesday;
@@ -200,7 +162,6 @@
       if (timeDifference < 0) {
         countdownButton.textContent = "We're meeting now! Come join us!";
       } else {
-        const days = Math.floor(timeDifference / oneDay);
         const nextClubNightMidnight = new Date(nextClubNight.getFullYear(), nextClubNight.getMonth(), nextClubNight.getDate()).getTime();
         const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
         const daysUntil = Math.round((nextClubNightMidnight - nowMidnight) / oneDay);
@@ -219,10 +180,9 @@
     updateCountdown();
     setInterval(updateCountdown, 60000);
   </script>
+  
   <footer>
-   <p>
-    © 2025 Dice & Dealers Club
-   </p>
+    <p>© 2025 Dice & Dealers Club</p>
   </footer>
- </body>
+</body>
 </html>
