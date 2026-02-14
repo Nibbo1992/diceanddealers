@@ -6,18 +6,20 @@
 
 :root {
   --primary-color: #212529; /* Dark charcoal */
-  --secondary-color: #343a40; /* Darker gray-blue */
+  --secondary-color: #2c3136; /* Slightly lighter gray for better contrast */
   --accent-color: #e65c00; /* Vibrant orange from the d20 */
   --highlight-color: #f7b32b; /* Bright yellow/gold from the logo */
   --text-color: #f8f9fa; /* Off-white for readability */
-  --background-color: #495057; /* Muted background gray */
+  --background-color: #3a3f44; /* Lighter background gray for better contrast */
+  --content-bg: #2c3136; /* Content area background */
+  --border-color: rgba(230, 92, 0, 0.3); /* Semi-transparent accent border */
 }
 
 body {
   font-family: 'Merriweather', serif;
   background-color: var(--background-color);
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.8;
   margin: 0;
   padding: 0;
   background-image: url('https://www.transparenttextures.com/patterns/dust-and-scratches.png');
@@ -32,12 +34,27 @@ body {
 h1, h2, h3 {
   color: var(--highlight-color);
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  line-height: 1.3;
 }
 
-h1 { font-size: 2.8rem; }
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.8rem; }
+h1 { 
+  font-size: 3rem;
+  margin-top: 0;
+}
+h2 { 
+  font-size: 2.4rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+h3 { 
+  font-size: 1.9rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
 
 a {
   color: var(--accent-color);
@@ -54,13 +71,16 @@ a:hover {
  */
 header {
   text-align: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .site-header {
   background-color: var(--primary-color);
   padding: 1rem 0;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar {
@@ -78,57 +98,107 @@ header {
   color: var(--text-color);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+.brand:hover {
+  transform: scale(1.02);
 }
 
 .logo {
   border-radius: 50%;
-  border: 2px solid var(--highlight-color);
+  border: 3px solid var(--highlight-color);
+  box-shadow: 0 0 10px rgba(247, 179, 43, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.logo:hover {
+  box-shadow: 0 0 20px rgba(247, 179, 43, 0.5);
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .nav-links a {
-  margin-left: 2rem;
+  padding: 0.5rem 1rem;
   font-weight: 400;
   color: var(--text-color);
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: var(--secondary-color);
+  color: var(--highlight-color);
 }
 
 /*
  * Sections
  */
 section {
-  background-color: var(--secondary-color);
-  padding: 2rem;
+  background-color: var(--content-bg);
+  padding: 3rem;
   border-radius: 12px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 3rem;
+  border: 1px solid var(--border-color);
+}
+
+section:last-of-type {
   margin-bottom: 2rem;
-  border: 1px solid var(--accent-color);
 }
 
 /*
  * Buttons
  */
-.button, .painting-guide, main a {
+.button, .painting-guide {
   display: inline-block;
-  background-color: transparent;
-  color: var(--accent-color);
-  padding: 5px 10px;
-  font-size: 1.1em; /* Slightly larger text */
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  padding: 12px 24px;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: color 0.3s ease, border-color 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Very subtle border */
-  border-radius: 5px;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
   cursor: pointer;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.button:hover, .painting-guide:hover, main a:hover {
-  color: #ff8c42;
+.button:hover, .painting-guide:hover {
+  background-color: #ff8c42;
   border-color: #ff8c42;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  color: var(--text-color);
+}
+
+.button:active, .painting-guide:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .painting-guide {
-  font-size: 1rem;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+}
+
+/* Links in main content that aren't buttons */
+main a:not(.button):not(.painting-guide) {
+  color: var(--accent-color);
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+main a:not(.button):not(.painting-guide):hover {
+  border-bottom-color: var(--accent-color);
 }
 
 /*
@@ -136,37 +206,107 @@ section {
  */
 .game-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2.5rem;
 }
 
 .game-card {
   background-color: var(--primary-color);
-  padding: 1.8rem;
+  padding: 2.5rem;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  border: 1px solid var(--secondary-color);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--border-color);
 }
 
 .game-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent-color);
 }
 
 .game-card h3 {
   margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.game-card p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/*
+ * Team Members Section
+ */
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+
+.team-member {
+  background-color: var(--primary-color);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--border-color);
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent-color);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid var(--highlight-color);
+  box-shadow: 0 0 15px rgba(247, 179, 43, 0.3);
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+  transition: box-shadow 0.3s ease;
+}
+
+.team-member:hover img {
+  box-shadow: 0 0 25px rgba(247, 179, 43, 0.5);
+}
+
+.team-member h4 {
+  color: var(--highlight-color);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.team-member p {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/*
+ * About Section Styling
+ */
+.about-us {
+  background: linear-gradient(135deg, var(--content-bg) 0%, var(--primary-color) 100%);
 }
 
 /*
  * Journey Section (Miniaturist's Handbook)
  */
 #journey-section {
-  background-color: var(--secondary-color);
-  padding: 2.5rem;
+  background-color: var(--content-bg);
+  padding: 3rem;
   border-radius: 12px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 #journey-section h2, #journey-section h3 {
@@ -178,37 +318,131 @@ section {
 }
 
 /*
+ * Lists
+ */
+ul {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+li {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+li strong {
+  color: var(--highlight-color);
+}
+
+/*
+ * Horizontal Rule
+ */
+hr {
+  border: none;
+  border-top: 2px solid var(--border-color);
+  margin: 3rem 0;
+}
+
+/*
  * Footer
  */
 footer {
   text-align: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
   color: var(--text-color);
   background-color: var(--primary-color);
+  border-top: 3px solid var(--accent-color);
+  margin-top: 2rem;
+}
+
+/*
+ * Guide Page Specific Styles
+ */
+.quote-text {
+  font-style: italic;
+  color: var(--highlight-color);
+  font-size: 1.1rem;
+  padding: 1.5rem;
+  background-color: rgba(247, 179, 43, 0.1);
+  border-left: 4px solid var(--highlight-color);
+  border-radius: 4px;
+  margin: 2rem 0 0.5rem 0;
+}
+
+.quote-author {
+  text-align: right;
+  color: var(--accent-color);
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  padding-right: 1.5rem;
 }
 
 /*
  * Responsive Design
  */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .navbar {
     flex-direction: column;
-    text-align: center;
+    gap: 1rem;
   }
 
   .nav-links {
-    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .nav-links a {
-    margin: 0 10px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 15px;
   }
 
   h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.8rem; }
-  h3 { font-size: 1.4rem; }
+  h2 { font-size: 1.9rem; }
+  h3 { font-size: 1.5rem; }
 
   section {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .game-container,
+  .team-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .button, .painting-guide {
+    display: block;
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  header {
+    padding: 2rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.3rem; }
+
+  .brand {
+    font-size: 1.4rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  section {
+    padding: 1.5rem 1rem;
   }
 }
