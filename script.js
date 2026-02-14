@@ -4,9 +4,13 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
 });
 
@@ -78,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (daysUntilWednesday === 0 && now.getHours() >= 18) {
                 // It's Wednesday evening, show "We're meeting now!"
-                whatsappLink.innerText = 'We’re Meeting Tonight!';
+                whatsappLink.innerText = 'We're Meeting Tonight!';
             } else if (daysUntilWednesday === 0) {
                 // It's Wednesday during the day
                 whatsappLink.innerText = 'Meeting Tonight!';
@@ -181,37 +185,68 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =============================
-// Show/Hide Faction Details
+// IMPROVED: Show/Hide Faction Details with Smooth Scrolling
 // =============================
 document.addEventListener('DOMContentLoaded', function() {
     const factionLinks = document.querySelectorAll('#factions nav ul li a');
     const factionSections = document.querySelectorAll('.faction-section');
+    const factionDisplayArea = document.getElementById('faction-display-area');
 
-    // Initially hide all sections except the first one (Cities of Sigmar)
-    factionSections.forEach((section, index) => {
-        if (index !== 0) {
-            section.style.display = 'none';
-        }
+    // Initially hide all faction sections
+    factionSections.forEach(section => {
+        section.style.display = 'none';
     });
+
+    // Show a message initially
+    if (factionDisplayArea) {
+        factionDisplayArea.innerHTML = '<p style="text-align: center; padding: 3rem; color: var(--text-color); font-style: italic;">Select a faction above to view its painting guide</p>';
+    }
 
     factionLinks.forEach(link => {
         link.addEventListener('click', function(event) {
-            // Prevent the default anchor link behavior
             event.preventDefault();
+
+            // Remove active class from all links
+            factionLinks.forEach(l => l.classList.remove('active-faction'));
+            // Add active class to clicked link
+            this.classList.add('active-faction');
 
             // Hide all faction sections
             factionSections.forEach(section => {
                 section.style.display = 'none';
             });
 
-            // Get the ID of the section to show from the link's href attribute
+            // Get the ID of the section to show
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
 
             // Show the target section if it exists
-            if (targetSection) {
+            if (targetSection && factionDisplayArea) {
                 targetSection.style.display = 'block';
+                
+                // Scroll to the display area smoothly
+                factionDisplayArea.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                // Add a brief highlight effect
+                factionDisplayArea.style.animation = 'none';
+                setTimeout(() => {
+                    factionDisplayArea.style.animation = 'highlight-pulse 0.6s ease-out';
+                }, 10);
             }
         });
     });
+
+    // Optional: Collapsible lore section
+    const loreToggle = document.getElementById('lore-toggle');
+    const loreContent = document.getElementById('lore-content');
+    
+    if (loreToggle && loreContent) {
+        loreToggle.addEventListener('click', function() {
+            const isExpanded = loreContent.classList.toggle('expanded');
+            this.textContent = isExpanded ? 'Hide Full Lore ▲' : 'Read Full Lore ▼';
+        });
+    }
 });
